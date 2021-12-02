@@ -1,5 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!--navbar navbar-dark bg-primary-->
+    <!--navbar navbar-light" style="background-color: #e3f2fd;-->
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Bloga</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,10 +9,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">About</a>
-          <a class="nav-link" href="#">Blog</a>
-          <a class="nav-link" href="#">Features</a>
+          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link class="nav-link" to="/about us">About</router-link>
+          <router-link class="nav-link" to="/blog">Blog</router-link>
         </div>
       </div>
     </div>
