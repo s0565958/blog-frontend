@@ -1,4 +1,5 @@
 # blog-frontend
+Muhammed Ermistekin & Usama Ahmad
 
 ## Project setup
 ```
