@@ -33,12 +33,13 @@ export default {
     }
   },
   mounted () {
+    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/posts'
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     }
 
-    fetch('http://localhost:8080/api/v1/posts', requestOptions)
+    fetch(endpoint, requestOptions)
       .then(response => response.json())
       .then(result => result.forEach(post => {
         this.posts.push(post)
