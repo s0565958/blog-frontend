@@ -7,7 +7,7 @@
         <img :src="getAvatar(post)" class="card-img-top" alt="post.username">
         <div class="card-body">
           <h5 class="card-title">{{post.username}}</h5>
-          <p class="card-text">Titel:{{post.title}} / Kategorie:{{post.content}}</p>
+          <p class="card-text">Titel:{{post.title}} / Kategorie:{{post.content}} / Blog:{{post.body}}</p>
         </div>
       </div>
      </div>
