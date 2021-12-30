@@ -1,8 +1,7 @@
 
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Hello World"/>
+    <HelloWorld msg="Willkomen"/>
   </div>
 </template>
 
@@ -17,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+a {
+  Background-color: #1F2833;
+}
+</style>
