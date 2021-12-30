@@ -3,13 +3,15 @@
   <div class="container-fluid">
     <bloglist :posts="this.posts"></bloglist>
     </div>
+  <blog-create></blog-create>
 </template>
 
 <script>
 import Bloglist from '@/components/Bloglist'
+import BlogCreate from '@/components/BlogCreate'
 export default {
   name: 'Post',
-  components: { Bloglist },
+  components: { BlogCreate, Bloglist },
   data () {
     return {
       posts: []
