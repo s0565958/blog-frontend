@@ -7,22 +7,34 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body small">
-      <form class="text-start">
+      <form class="text-start needs-validation" novalidate>
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="" v-model="username">
+        <input type="text" class="form-control" id="username" placeholder="" v-model="username" required>
+        <div class="invalid-feedback">
+          Bitte geben sie den Username ein.
+        </div>
       </div>
       <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="" v-model="title">
+        <label for="title" class="form-label">Titel</label>
+        <input type="text" class="form-control" id="title" placeholder="" v-model="title" required>
+        <div class="invalid-feedback">
+          Bitte geben sie den Titel ein.
+        </div>
       </div>
       <div class="mb-3">
         <label for="kategorie" class="form-label">Kategorie</label>
-        <input type="text" class="form-control" id="kategorie" placeholder="" v-model="content">
+        <input type="text" class="form-control" id="kategorie" placeholder="" v-model="content" required>
+        <div class="invalid-feedback">
+          Bitte geben sie die Kategorie ein.
+        </div>
       </div>
       <div class="mb-3">
-        <label for="blog" class="form-label">Blog</label>
-        <input type="text" class="form-control" id="blog" placeholder="" v-model="body">
+        <label for="blog" class="form-label">Text</label>
+        <input type="text" class="form-control" id="blog" placeholder="" v-model="body" required>
+        <div class="invalid-feedback">
+          Bitte geben sie den Text ein.
+        </div>
       </div>
       <div class="mt-xl-5">
         <button class="btn btn-success create-button2" type="submit" @click="createBlog">Create</button>
@@ -46,27 +58,51 @@ export default {
   },
   methods: {
     createBlog () {
-      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/posts'
+      const valid = this.validate()
+      if (valid) {
+        const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/posts'
 
-      const headers = new Headers()
-      headers.append('Content-Type', 'application/json')
+        const headers = new Headers()
+        headers.append('Content-Type', 'application/json')
 
-      const payload = JSON.stringify({
-        username: this.username,
-        title: this.title,
-        content: this.content,
-        body: this.body
-      })
+        const payload = JSON.stringify({
+          username: this.username,
+          title: this.title,
+          content: this.content,
+          body: this.body
+        })
 
-      const requestOptions = {
-        method: 'POST',
-        headers: headers,
-        body: payload,
-        redirect: 'follow'
+        const requestOptions = {
+          method: 'POST',
+          headers: headers,
+          body: payload,
+          redirect: 'follow'
+        }
+
+        fetch(endpoint, requestOptions)
+          .then(response => response.text())
+          .catch(error => console.log('error', error))
       }
+    },
+    validate () {
+      let valid = true
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
 
-      fetch(endpoint, requestOptions)
-        .catch(error => console.log('error', error))
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              valid = false
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      return valid
     }
   }
 }
