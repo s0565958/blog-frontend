@@ -111,7 +111,7 @@ export default {
 <style scoped>
 .create-button1 {
   position: fixed;
-  buttom: 20px;
+  buttom: 10px;
   right: 30px;
   padding : 10px 15px;
   border-radius: 30px;

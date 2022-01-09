@@ -5,7 +5,10 @@
           <img :src="getAvatar(post)" class="card-img-top" alt="post.username">
           <div class="card-body">
             <h5 class="card-title">{{post.username}}</h5>
-            <p class="card-text">Titel:{{post.title}} / Kategorie:{{post.content}} / Blog:{{post.body}}</p>
+            <p class="card-text">Titel: {{post.title}}</p>
+            <p class="card-text">Kategorie: {{post.content}}</p>
+            <p class="card-text">Text: {{post.body}}</p>
+            <button class="btn btn-danger deleteButton" type="delete" @click="deleteBlog(post)">Delete</button>
           </div>
         </div>
       </div>
@@ -28,12 +31,22 @@ export default {
       } else if (post.content === 'Technology') {
         return require('../assets/download.jpg')
       }
+    },
+    deleteBlog (post) {
+      const requestOptions = {
+        method: 'DELETE',
+        redirect: 'follow'
+      }
+      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/posts/' + post.id
+      fetch(endpoint, requestOptions)
+        .catch(error => console.log('error', error))
     }
   }
 }
-
 </script>
 
 <style scoped>
-
+.deleteButton{
+  border-radius: 30px;
+}
 </style>

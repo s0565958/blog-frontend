@@ -17,15 +17,6 @@ export default {
       posts: []
     }
   },
-  methods: {
-    getAvatar (post) {
-      if (post.content === 'Sport') {
-        return require('../assets/download.png')
-      } else if (post.content === 'Technology') {
-        return require('../assets/download.jpg')
-      }
-    }
-  },
   mounted () {
     const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/posts'
     const requestOptions = {

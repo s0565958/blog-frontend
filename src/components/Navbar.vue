@@ -1,7 +1,5 @@
 <template>
   <nav class="navbar navbar-expand-lg">
-    <!--navbar navbar-dark bg-primary-->
-    <!--navbar navbar-light" style="background-color: #e3f2fd;-->
     <div class="container">
       <a class="navbar-brand" href="#">Bloga</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
