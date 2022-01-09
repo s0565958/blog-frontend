@@ -8,7 +8,6 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link class="nav-link" href="#" to="/">Home</router-link>
-          <router-link class="nav-link" href="#" to="/about us">About</router-link>
           <router-link class="nav-link" href="#" to="/blog">Blog</router-link>
         </div>
       </div>

@@ -27,8 +27,14 @@ export default {
   methods: {
     getAvatar (post) {
       if (post.content === 'Sport') {
-        return require('../assets/download.png')
+        return require('../assets/sport.png')
       } else if (post.content === 'Technology') {
+        return require('../assets/technology.jpg')
+      } else if (post.content === 'Travel') {
+        return require('../assets/travel.jpg')
+      } else if (post.content === 'Music') {
+        return require('../assets/music.png')
+      } else {
         return require('../assets/download.jpg')
       }
     },
