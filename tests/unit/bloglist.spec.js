@@ -6,7 +6,7 @@ describe('Testing Bloglist.vue', () => {
     // when
     const wrapper = mount(Bloglist, {
       propsData: {
-        persons: [
+        posts: [
           {
             id: 1,
             username: 'JohnJH',
@@ -26,7 +26,7 @@ describe('Testing Bloglist.vue', () => {
     })
 
     // then
-    const blog = wrapper.findAllComponents(Blog)
-    expect(blog.length).toBe(2)
+    const bloglist = wrapper.findAllComponents(Blog)
+    expect(bloglist.length).toBe(2)
   })
 })
